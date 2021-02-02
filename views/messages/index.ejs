@@ -1,0 +1,27 @@
+<% layout('layouts/boilerplate')%>
+
+<h1>All Messages</h1>
+<div>
+  <a href="/messages/new">Add A Message</a>
+</div>
+<% for (let message of messages){%>
+<div class="card" mb-3>
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-fluid" alt="" src="<%=message.image%>" />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= message.title %></h5>
+        <p class="card-text"><%= message.body %></p>
+        <p class="card-text">
+          <small class="text-muted"><%= message.likes%></small>
+        </p>
+        <a class="btn btn-primary" href="/messages/<%=message._id%>"
+          >View This Post</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<% }%>

@@ -1,0 +1,21 @@
+version: "3"
+services:
+  app:
+    container_name: volkhub
+    restart: always
+    build: .
+    ports:
+      - "80:3000"
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app
+    external_links:
+      - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - /data/db:/data/db
+    ports:
+      - "27017:27017"

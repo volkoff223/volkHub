@@ -1,0 +1,29 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="row">
+  <div class="col-6 offset-3">
+    <div class="card mb-3">
+      <img src="<%= message.image%>" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title"><%= message.title%></h5>
+        <p class="card-text"><%= message.body%></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= message.likes%> Likes</li>
+      </ul>
+      <div class="card-body">
+        <a class="card-link btn btn-info" href="/messages/<%=message._id%>/edit"
+          >Edit</a
+        >
+        <form
+          class="d-inline"
+          action="/campgrounds/<%=message._id%>?_method=DELETE"
+          method="POST"
+        >
+          <button class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+      <div class="card-footer text-muted">2 days ago</div>
+    </div>
+  </div>
+</div>
